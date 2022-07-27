@@ -1,10 +1,14 @@
 .PHONY: build
 
+VUS ?= 30
+DURATION ?= 30s
+ENDPOINT ?= https://api-staging.fieldseating.com
+
 run: build
-	k6 run build/app.bundle.js
+	ENDPOINT=${ENDPOINT} k6 run --vus ${VUS} --duration ${DURATION} build/app.bundle.js
 
 docker-run: build
-	docker run -v $(pwd)/build:/build loadimpact/k6 run /build/app.bundle.js
+	ENDPOINT=${ENDPOINT} docker run -v $(pwd)/build:/build loadimpact/k6 run /build/app.bundle.js
 
 build:
 	npm run webpack
