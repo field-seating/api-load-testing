@@ -1,13 +1,14 @@
-var webpack = require('webpack');
-var path = require('path');
+const path = require('path');
 
 module.exports = {
   mode: 'production',
-  entry: './main.js',
+  entry: {
+    'get-spaces-photo': './src/get-spaces-photo.js',
+  },
   output: {
     path: path.resolve(__dirname, 'build'),
     libraryTarget: 'commonjs',
-    filename: 'app.bundle.js',
+    filename: '[name].bundle.js',
   },
   module: {
     rules: [
