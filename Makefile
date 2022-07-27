@@ -14,4 +14,4 @@ build:
 	npm run webpack
 
 clean:
-	rm -f build/app.bundle.js
+	rm -f build/*
