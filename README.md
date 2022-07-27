@@ -1,5 +1,8 @@
 # API Load Testing
 
+## Prerequisite
+You should either insall `k6` globally or docker on your local machine to run the script.
+
 ## How to use it
 ```sh
 # run in global k8
