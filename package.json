@@ -23,6 +23,6 @@
   "author": "Mihail Stoykov",
   "license": "ISC",
   "dependencies": {
-    "@faker-js/faker": "^7.3.0"
+    "@ngneat/falso": "^6.0.3"
   }
 }

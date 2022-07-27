@@ -4,6 +4,7 @@ module.exports = {
   mode: 'production',
   entry: {
     'get-spaces-photo': './src/get-spaces-photo.js',
+    'sign-up': './src/sign-up.js',
   },
   output: {
     path: path.resolve(__dirname, 'build'),
@@ -24,4 +25,7 @@ module.exports = {
   target: 'web',
   externals: /^(k6|https?\:\/\/)(\/.*)?/,
   devtool: 'source-map',
+  optimization: {
+    usedExports: true,
+  },
 };

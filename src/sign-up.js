@@ -1,5 +1,7 @@
-import http from 'k6/http';
 import { sleep, check } from 'k6';
+
+import createUserSignUp from './lib/generators/create-user-sign-up';
+import post from './lib/http/post';
 
 const endpoint = __ENV.ENDPOINT;
 
@@ -11,7 +13,8 @@ export const options = {
 };
 
 export default function () {
-  const res = http.get(`${endpoint}/api/spaces/128/photos`);
+  const url = `${endpoint}/api/users`;
+  const res = post(url, createUserSignUp());
 
   check(res, {
     'is status 200': (r) => r.status === 200,
