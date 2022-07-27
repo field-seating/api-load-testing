@@ -13,9 +13,9 @@ CASE=get-spaces-photo make docker-run
 ```
 
 ## Environment Variables
-CASE: file name of test script in src/
+- CASE: file name of test script in src/
 
 ### Optional, refer to `Makefile` for default value
-VUS: numbers of virtual user
-DURATION: duration
-ENDPOINT: api endpoint
+- VUS: numbers of virtual user
+- DURATION: duration
+- ENDPOINT: api endpoint
