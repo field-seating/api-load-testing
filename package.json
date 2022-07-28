@@ -23,6 +23,7 @@
   "author": "Mihail Stoykov",
   "license": "ISC",
   "dependencies": {
-    "@ngneat/falso": "^6.0.3"
+    "@ngneat/falso": "^6.0.3",
+    "prettier": "^2.7.1"
   }
 }
