@@ -6,16 +6,21 @@ You should either install `k6` globally or docker on your local machine to run t
 ## How to use it
 ```sh
 # run in global k8
-VUS=60 DURATION=30s CASE=get-spaces-photo make run
+bash run.sh -v 1 -d 5 -c src/get-spaces-photo.js
 
-# run in docker
-CASE=get-spaces-photo make docker-run
+# run in doc**k**er
+bash run.sh -v 1 -d 5 -c -k src/get-spaces-photo.js
+
+# override the api endpoint
+ENDPOINT="https://example.com" bash run.sh -v 1 -d 5 -c src/get-spaces-photo.js
 ```
 
-## Environment Variables
-- CASE: file name of test script in src/
+## opts
+- c: file name of test script
 
 ### Optional, refer to `Makefile` for default value
-- VUS: numbers of virtual user
-- DURATION: duration
-- ENDPOINT: api endpoint
+- v: numbers of virtual user
+- d: duration
+
+## Environment Variables
+- ENDPOINT: API Endpoint
