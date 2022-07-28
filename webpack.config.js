@@ -2,10 +2,6 @@ const path = require('path');
 
 module.exports = {
   mode: 'production',
-  entry: {
-    'get-spaces-photo': './src/get-spaces-photo.js',
-    'sign-up': './src/sign-up.js',
-  },
   output: {
     path: path.resolve(__dirname, 'build'),
     libraryTarget: 'commonjs',
