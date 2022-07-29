@@ -2,7 +2,7 @@
 
 vus=30
 duration=30
-endpoint="${ENDPOINT:-"https://api-staging.fieldseating.com"}"
+endpoint="${ENDPOINT:-"https://api-loadtest.fieldseating.com"}"
 use_docker=0
 
 while getopts 'v:d:c:k' OPTION; do
