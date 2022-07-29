@@ -1,4 +1,5 @@
 import { sleep, check } from 'k6';
+import http from 'k6/http';
 
 import createUserSignUp from './lib/generators/create-user-sign-up';
 import post from './lib/http/post';
@@ -10,7 +11,15 @@ export function setup() {
   const userData = createUserSignUp();
   post(url, userData);
 
-  return userData;
+  const { email, password } = userData;
+
+  const signInUrl = `${endpoint}/api/signin`;
+  const res = post(signInUrl, {
+    email,
+    password,
+  });
+
+  return res.json();
 }
 
 export const options = {
@@ -20,13 +29,17 @@ export const options = {
   },
 };
 
-export default function (userData) {
-  const url = `${endpoint}/api/signin`;
-  const { email, password } = userData;
+export default function (singInData) {
+  const url = `${endpoint}/api/users/me`;
+  const {
+    data: { token },
+  } = singInData;
 
-  const res = post(url, {
-    email,
-    password,
+  console.info('token', token);
+  const res = http.get(url, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
   });
 
   check(res, {
