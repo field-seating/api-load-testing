@@ -36,7 +36,12 @@ echo "options arg: vus: ${vus} | duration: ${duration}s"
 echo "entry_file: $entry_file"
 echo "endpoint: $endpoint"
 
-npm run webpack --entry ${entry_file}
+if npm run webpack --entry ${entry_file} ; then
+  echo "build succeeds"
+else
+  echo "build fails"
+  exit 1
+fi
 
 if [ $use_docker -eq 1 ]
 then
