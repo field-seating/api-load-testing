@@ -11,7 +11,7 @@ export const options = {
 };
 
 export default function () {
-  const res = http.get(`${endpoint}/api/spaces/128/photos`);
+  const res = http.get(`${endpoint}/api/spaces/2/photos`); // target 2 (200photos) target 128 (0photos)
 
   check(res, {
     'is status 200': (r) => r.status === 200,
